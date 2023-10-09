@@ -3,6 +3,7 @@ import type { Media, Menu, Post, User } from './payload-types'
 import { buildConfigWithDefaults } from '../buildConfigWithDefaults'
 import { devUser } from '../credentials'
 import { MediaCollection } from './collections/Media'
+import { PagesCollection } from './collections/Pages'
 import { PostsCollection, postsSlug } from './collections/Posts'
 import { MenuGlobal } from './globals/Menu'
 
@@ -24,6 +25,7 @@ export default buildConfigWithDefaults({
   collections: [
     PostsCollection,
     MediaCollection,
+    PagesCollection,
     // ...add more collections here
   ],
   globals: [
@@ -32,6 +34,10 @@ export default buildConfigWithDefaults({
   ],
   graphQL: {
     schemaOutputFile: './test/_community/schema.graphql',
+  },
+  localization: {
+    locales: ['de', 'en'],
+    defaultLocale: 'de',
   },
 
   onInit: async (payload) => {
